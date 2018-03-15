@@ -10,7 +10,7 @@ import string
 EXCLUDE_CHARS = ["\\", "/", "'", '"']
 LOWER_CHARS = [char for char in string.ascii_lowercase]
 UPPER_CHARS = [char for char in string.ascii_uppercase]
-INTEGER_CHARS = ["%s" % i for i in range(10)]
+INTEGER_CHARS = [str(i) for i in range(10)]
 SPECIAL_CHARS = [char for char in string.punctuation
                  if char not in EXCLUDE_CHARS]
 
