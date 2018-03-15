@@ -21,6 +21,13 @@ class TestRest(unittest.TestCase):
         self.assertTrue("result" in json_data)
         self.assertEqual(response.status, "200 OK")
 
+    def test_password_generation_bad_input_rest(self):
+        response = self.app.get('/rpc/password?max_chars=1&min_chars=10')
+        self.assertEqual(response.status, "400 BAD REQUEST")
+
+        response = self.app.get('/rpc/password?max_chars=bad_data')
+        self.assertEqual(response.status, "400 BAD REQUEST")
+
     @given(st.integers(min_value=10, max_value=16),
            st.integers(min_value=16, max_value=64),
            st.integers(min_value=0, max_value=5),
