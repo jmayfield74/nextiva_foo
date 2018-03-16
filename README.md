@@ -1,6 +1,6 @@
 # Nextiva_foo
 
-Some functionality and some endpoints...
+Some functionality and corresponding rpc endpoints...
 
 
 ## Setup
