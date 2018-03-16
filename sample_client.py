@@ -85,6 +85,8 @@ def make_request(args):
     result = request_fun(url, **params)
     if result.status_code == 200:
         print result.json()["result"]
+    else:
+        print "ERROR ({}): {}".format(result.status_code, result.text)
 
 
 def get_request_details(args):
