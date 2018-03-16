@@ -51,6 +51,10 @@ def generate(min_chars=6, max_chars=64, integers=1, specials=1, uppers=1):
 # HELPERS =====================================================================
 
 def fill_length(min_chars, max_chars, req_chars):
+    """
+    Determine the number of characters to generate after
+    requirements (ints, specials, uppers) have been satisfied.
+    """
     min_fill = 0
     if req_chars < min_chars:
         min_fill = min_chars - req_chars
