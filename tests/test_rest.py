@@ -26,7 +26,7 @@ class TestRest(unittest.TestCase):
         self.assertEqual(response.status, "400 BAD REQUEST")
 
         response = self.app.get('/rpc/password?max_chars=bad_data')
-        self.assertEqual(response.status, "400 BAD REQUEST")
+        self.assertEqual(response.status, "500 INTERNAL SERVER ERROR")
 
     @given(st.integers(min_value=10, max_value=16),
            st.integers(min_value=16, max_value=64),

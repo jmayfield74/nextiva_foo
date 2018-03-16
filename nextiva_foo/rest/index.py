@@ -46,7 +46,6 @@ def spiral_sort():
 def handle_request(execute, input_data, valid_fields, cast=None):
     """
     Generic handler for routes. Handles input cleaning, exceptions, etc.
-    Errors are handle simply in this case, treating all errors as 400.
     """
     try:
         params = clean_input(
@@ -55,10 +54,10 @@ def handle_request(execute, input_data, valid_fields, cast=None):
             cast=cast
         )
         result = execute(**params)
-    except AssertionError, e:
+    except AssertionError, e:   # the expected assertion error
         return e.message, 400
-    except Exception, e:
-        return "EGAD! {}".format(e.message), 400
+    except Exception, e:        # all other downstream issues
+        return "EGAD! {}".format(e.message), 500
 
     response = {"result": result}
     return jsonify(response)
